@@ -129,7 +129,7 @@ export default function Produk() {
                         resetForm();
                         setIsModalOpen(true);
                     }}
-                    className="flex items-center justify-center gap-2 bg-[#810b38] text-white font-semibold rounded-xl px-5 py-3 transition-all hover:bg-[#541a1a] shadow-md active:scale-95 text-sm self-start sm:self-auto w-full sm:w-auto"
+                    className="flex items-center justify-center gap-2 bg-[#810b38] text-white font-bold rounded-xl px-5 py-3 transition-all hover:bg-[#541a1a] shadow-md active:scale-95 text-sm self-start sm:self-auto w-full sm:w-auto"
                 >
                     <FiPlus size={18} /> Tambah Produk Baru
                 </button>
@@ -161,7 +161,7 @@ export default function Produk() {
                     <button
                         key={kat}
                         onClick={() => setSelectedKategori(kat)}
-                        className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-300 border whitespace-nowrap will-change-transform ${
+                        className={`px-4 py-2 rounded-xl text-xl font-semibold transition-all duration-300 border whitespace-nowrap will-change-transform ${
                             selectedKategori === kat
                                 ? "bg-[#810b38] text-white border-[#810b38] shadow-md -translate-y-0.5"
                                 : "bg-white text-[#541a1a] border-[#dcc3aa] hover:bg-[#fdfbf7] hover:-translate-y-0.5 hover:shadow-sm"
