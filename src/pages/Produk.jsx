@@ -161,7 +161,7 @@ export default function Produk() {
                     <button
                         key={kat}
                         onClick={() => setSelectedKategori(kat)}
-                        className={`px-4 py-2 rounded-xl text-xl font-semibold transition-all duration-300 border whitespace-nowrap will-change-transform ${
+                        className={`px-4 py-2 rounded-xl text-m font-semibold transition-all duration-300 border whitespace-nowrap will-change-transform ${
                             selectedKategori === kat
                                 ? "bg-[#810b38] text-white border-[#810b38] shadow-md -translate-y-0.5"
                                 : "bg-white text-[#541a1a] border-[#dcc3aa] hover:bg-[#fdfbf7] hover:-translate-y-0.5 hover:shadow-sm"
