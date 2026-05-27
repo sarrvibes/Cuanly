@@ -1,0 +1,48 @@
+@media print {
+@page {
+size: A4;
+margin: 12mm;
+}
+
+body {
+background: white !important;
+}
+
+.no-print {
+display: none !important;
+}
+
+aside {
+display: none !important;
+}
+
+nav {
+display: none !important;
+}
+
+button {
+display: none !important;
+}
+
+.laporan-print {
+width: 100%;
+margin: 0;
+padding: 0;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+th,
+td {
+border: 1px solid black !important;
+padding: 8px;
+color: black !important;
+}
+
+th {
+background: #eee !important;
+}
+}

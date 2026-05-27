@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+:root {
+  /* --- New Classic Coquette Color Palette --- */
+  --coquette-berry: #810b38;
+  --coquette-cream: #f1e2d1;
+  --coquette-tan: #dcc3aa;
+  --coquette-dark: #541a1a;
+
+  --text: var(--coquette-dark);
+  --text-h: var(--coquette-berry);
+  --bg: #fdfbf7;
+  --border: var(--coquette-tan);
+  --code-bg: rgba(220, 195, 170, 0.3);
+  --accent: var(--coquette-berry);
+  --accent-bg: var(--coquette-cream);
+  --accent-border: var(--coquette-tan);
+
+  --shadow: 0 8px 25px rgba(84, 26, 26, 0.08);
+  --shadow-sm: 0 4px 10px rgba(84, 26, 26, 0.05);
+
+  --sans: "Plus Jakarta Sans", "Quicksand", system-ui, sans-serif;
+  --heading: "Playfair Display", "Fredoka", serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 17px/160% var(--sans);
+  letter-spacing: 0.15px;
+  color: var(--text);
+  background: var(--coquette-cream);
+
+  /* Polka dot lembut sebagai background dasar body */
+  /* background-image: radial-gradient(#fdfbf7 1.5px, transparent 1.5px);
+  background-size: 26px 26px; */
+
+  @media (max-width: 1024px) {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #f5efeb;
+    --text: var(--coquette-dark);
+    --text-h: var(--coquette-berry);
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--coquette-cream);
+}
+
+#root {
+  /* --- KUNCI FULL LAYOUT & RESPONSIVE --- */
+  width: 100%;
+  max-width: 100%; /* Menghapus batas 780px agar full di PC */
+  margin: 0;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  
+  
+  /* Background konten dengan efek glassmorphism tipis */
+  background: rgba(253, 251, 247, 0.8); 
+  backdrop-filter: blur(20px);
+  
+  /* Menghapus border samping agar benar-benar terlihat memenuhi layar */
+  border: none;
+  box-shadow: none;
+
+  @media (max-width: 768px) {
+    
+  }
+}
+
+/* --- Typography & Elements (Tetap Estetik) --- */
+h1, h2, h3 {
+  font-family: var(--heading);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 48px; /* Sedikit lebih besar karena sekarang layout luas */
+  letter-spacing: -0.5px;
+  margin: 10px 0 24px 0;
+  background: linear-gradient(135deg, var(--coquette-dark) 0%, var(--coquette-berry) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+    margin-top:40px;
+    margin-bottom: 8px;
+  }
+}
+
+button, .btn {
+  font-family: var(--sans);
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 12px 28px;
+  background-color: var(--coquette-berry);
+  color: #fdfbf7;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  border: none;
+  box-shadow: var(--shadow-sm);
+
+  @media (max-width: 768px) {
+    padding: 8px 15px;
+  }
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.05);
+  background-color: var(--coquette-dark);
+  box-shadow: 0 8px 20px rgba(129, 11, 56, 0.2);
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 14px;
+  padding: 4px 10px;
+  background: var(--code-bg);
+  border: 1px dashed var(--coquette-berry);
+  border-radius: 8px;
+}
