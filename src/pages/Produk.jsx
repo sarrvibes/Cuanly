@@ -338,11 +338,11 @@ export default function Produk() {
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div>
                                 <label className="block text-xs font-semibold text-[#541a1a] opacity-70 mb-1">
-                                    Nama Barang
+                                    Nama Barang/Menu
                                 </label>
                                 <input
                                     type="text"
-                                    placeholder="Contoh: Hijab Bella Square"
+                                    placeholder="Contoh: Nasi Goreng"
                                     className="w-full border border-[#dcc3aa] rounded-xl p-3 focus:ring-2 focus:ring-[#810b38] outline-none transition-all placeholder:italic text-sm"
                                     value={form.nama_produk}
                                     required
@@ -354,11 +354,11 @@ export default function Produk() {
 
                             <div>
                                 <label className="block text-xs font-semibold text-[#541a1a] opacity-70 mb-1">
-                                    Kategori Produk
+                                    Kategori
                                 </label>
                                 <input
                                     type="text"
-                                    placeholder="Contoh: Hijab, Aksesoris, Gamis"
+                                    placeholder="Contoh: Makanan, Adds-on, Minuman"
                                     className="w-full border border-[#dcc3aa] rounded-xl p-3 focus:ring-2 focus:ring-[#810b38] outline-none transition-all placeholder:italic text-sm"
                                     value={form.kategori}
                                     required
