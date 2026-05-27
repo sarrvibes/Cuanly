@@ -12,7 +12,6 @@ export default function Produk() {
         nama_produk: "",
         harga_modal: "",
         harga_jual: "",
-        stok: "",
         kategori: "", 
     });
     const [editId, setEditId] = useState(null);
@@ -42,8 +41,6 @@ export default function Produk() {
             kategori: form.kategori.trim() || "Lainnya",
             harga_modal: Number(form.harga_modal),
             harga_jual: Number(form.harga_jual),
-            // Jika form.stok kosong, set nilainya jadi null di database
-            stok: form.stok === "" || form.stok === null ? null : Number(form.stok),
         };
 
         if (editId) {
@@ -77,7 +74,6 @@ export default function Produk() {
             nama_produk: "",
             harga_modal: "",
             harga_jual: "",
-            stok: "",
             kategori: "",
         });
     }
@@ -88,7 +84,6 @@ export default function Produk() {
             nama_produk: item.nama_produk,
             harga_modal: item.harga_modal ?? "",
             harga_jual: item.harga_jual ?? "",
-            stok: item.stok ?? "", // Jika null di database, jadikan string kosong di form
             kategori: item.kategori || "",
         });
         setIsModalOpen(true); 
@@ -120,7 +115,7 @@ export default function Produk() {
                 <h1 className="text-2xl md:text-3xl font-bold text-[#810b38] font-serif tracking-tight text-left">
                     Manajemen Produk{" "}
                     <span className="text-xs md:text-sm font-normal italic opacity-60 block md:inline">
-                        Atur stok barang jualanmu ✿
+                        Daftar barang dan menu jualanmu ✿
                     </span>
                 </h1>
 
@@ -196,17 +191,6 @@ export default function Produk() {
                                                 {item.nama_produk}
                                             </h3>
                                         </div>
-                                        <span
-                                            className={`px-2 py-0.5 rounded-lg text-xs font-bold shrink-0 ${
-                                                item.stok === null || item.stok === undefined
-                                                    ? "bg-gray-100 text-gray-500"
-                                                    : item.stok <= 5
-                                                    ? "bg-red-100 text-red-600"
-                                                    : "bg-green-100 text-green-600"
-                                            }`}
-                                        >
-                                            {item.stok === null || item.stok === undefined ? "Tanpa Stok" : `Stok: ${item.stok} pcs`}
-                                        </span>
                                     </div>
 
                                     <div className="grid grid-cols-2 gap-2 pt-2 border-t border-[#f1e2d1] text-xs mb-4">
@@ -251,7 +235,6 @@ export default function Produk() {
                                         <th className="p-4 font-serif text-[#810b38]">Kategori</th>
                                         <th className="p-4 font-serif text-[#810b38]">Harga Modal</th>
                                         <th className="p-4 font-serif text-[#810b38]">Harga Jual</th>
-                                        <th className="p-4 font-serif text-[#810b38]">Stok</th>
                                         <th className="p-4 font-serif text-[#810b38] text-center">Aksi</th>
                                     </tr>
                                 </thead>
@@ -269,19 +252,6 @@ export default function Produk() {
                                             </td>
                                             <td className="p-4 text-[#810b38] font-semibold">
                                                 Rp {Number(item.harga_jual).toLocaleString()}
-                                            </td>
-                                            <td className="p-4">
-                                                <span
-                                                    className={`px-2 py-1 rounded-lg text-xs font-bold ${
-                                                        item.stok === null || item.stok === undefined
-                                                            ? "bg-gray-100 text-gray-500"
-                                                            : item.stok <= 5
-                                                            ? "bg-red-100 text-red-600"
-                                                            : "bg-green-100 text-green-600"
-                                                    }`}
-                                                >
-                                                    {item.stok === null || item.stok === undefined ? "-" : `${item.stok} pcs`}
-                                                </span>
                                             </td>
                                             <td className="p-4">
                                                 <div className="flex justify-center gap-2">
@@ -302,7 +272,7 @@ export default function Produk() {
                                         </tr>
                                     ))}
                                 </tbody>
-                             </table>
+                            </table>
                         </div>
                     </>
                 )}
@@ -399,23 +369,6 @@ export default function Produk() {
                                         }
                                     />
                                 </div>
-                            </div>
-
-                            <div>
-                                <div className="flex justify-between items-center mb-1">
-                                    <label className="block text-xs font-semibold text-[#541a1a] opacity-70">
-                                        Stok Awal
-                                    </label>
-                                    <span className="text-[10px] text-gray-400 italic">Kosongkan jika menu/opsional</span>
-                                </div>
-                                <input
-                                    type="number"
-                                    placeholder="Pcs (opsional)"
-                                    className="w-full border border-[#dcc3aa] rounded-xl p-3 focus:ring-2 focus:ring-[#810b38] outline-none transition-all text-sm"
-                                    value={form.stok}
-                                    // Atribut required telah dihapus agar field bersifat opsional
-                                    onChange={(e) => setForm({ ...form, stok: e.target.value })}
-                                />
                             </div>
 
                             <div className="pt-4 flex gap-3">
